@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    	<!-- Google Font -->
+  	<link rel="preconnect" href="https://fonts.googleapis.com">
+	  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <title>Mizzle - Technology and Corporate Bootstrap Theme</title>
+
+    <style>
+      #splash-screen {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        background: white;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        opacity: 1;
+        transition: all 15s linear;
+        overflow: hidden;
+      }
+  
+      #splash-screen.remove {
+        animation: fadeout 0.7s forwards;
+        z-index: 0;
+      }
+  
+      @keyframes fadeout {
+        to {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="splash-screen">
+      <img alt="Logo" class="light" src="./src/assets/images/logo.svg" style="height: 10%;" />
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+    <script>
+      const appEl = document.querySelector('#app')
+      new MutationObserver(() => {
+        document.querySelector('#splash-screen')?.classList.add('remove');
+      }).observe(appEl, { childList: true })
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-js/1.3.0/sticky.min.js" integrity="sha512-3z3zGiu0PabNyuTAAfznBJFpOg4owG9oQQasE5BwiiH5BBwrAjbfgIe0RCdtHJ0BQV1YF2Shgokbz2NziLnkuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </body>
+</html>

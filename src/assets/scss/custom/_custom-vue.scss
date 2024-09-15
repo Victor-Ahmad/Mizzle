@@ -1,0 +1,49 @@
+// Custom - React
+
+.arrow-none {
+  &:after {
+    display: none !important;
+  }
+
+  &:before {
+    display: none !important;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.flex-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icons-center {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar-expand-xl {
+  .navbar-nav {
+    .dropdown > .dropdown-menu {
+      visibility: hidden;
+      opacity: 0;
+      display: none;
+      transition: all 0.1s ease-in-out;
+      [data-bs-popper] {
+        top: 0;
+        right: auto;
+        left: 100%;
+        margin-top: 0;
+        margin-left: var(--bs-dropdown-spacer);
+      }
+    }
+    .dropdown:hover > .dropdown-menu {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+  }
+}
